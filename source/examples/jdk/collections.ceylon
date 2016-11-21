@@ -57,6 +57,8 @@ shared void egList() {
         print(word);
     }
 
+    words.forEach(print);
+
     for (i in 0:words.size()) {
         print(words[i]);
     }
