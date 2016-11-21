@@ -26,7 +26,7 @@ shared void egUnionConcatenatedStream() {
 
     Stream
         .concat(Stream.with(*text.split()),
-                Stream.iterate(1, (Integer x) => x*2))
+                Stream.iterate(1, 2.times))
         .parallel()
         .filter((x)
             => switch (x)
@@ -60,11 +60,11 @@ shared void egLongStreamToList() {
 
     value evenCubes =
             LongStream
-                .iterate(1, (x) => x+1)
+                .iterate(1, (x) => x+1) //or Integer.successor
                 .parallel()
                 .map((i) => i^3)
                 .filter(2.divides)
-                .mapToObj((i) => i)
+                .mapToObj((i) => i) //or identity<Integer>
                 .limit(20)
                 .collect(toList<Integer>());
 
