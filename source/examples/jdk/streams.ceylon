@@ -1,6 +1,7 @@
 import java.util.stream {
     Collectors {
-        toList
+        toList,
+        toMap
     },
     Stream {
         with=\iof
@@ -46,9 +47,8 @@ shared void egParallelStreamToMap() {
                 .parallel()
                 .map(String.trimmed)
                 .filter((str) => str.shorterThan(10))
-                .collect(Collectors.toMap(
-                        (String str) => str,
-                        (String str) => str.size));
+                .collect(toMap((String str) => str,
+                               (String str) => str.size));
 
     map.entrySet()
         .parallelStream()
