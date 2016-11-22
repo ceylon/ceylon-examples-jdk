@@ -14,7 +14,6 @@ import java.util {
 shared void egArray() {
 
     value words = ObjectArray(4, "hello");
-
     words[1] = "world";
     words[2] = "goodbye";
     words[3] = "!";
@@ -69,8 +68,17 @@ shared void egList() {
     value cubes = Arrays.asList(for (i in 0..10) i^3);
     value evenCubes = Arrays.asList(for (n in cubes) if (2.divides(n)) n);
 
+    //a List<Integer|Character>
+    value intsAndChars = Arrays.asList(*interleave(0..30, 'A'..'Z'));
+
     printAll { *cubes };
     printAll { *evenCubes };
+    printAll { *intsAndChars };
+
+    intsAndChars.forEach((x)
+        => print(switch (x)
+            case (is Integer)   "Integer:   ``x``"
+            case (is Character) "Character: ``x``"));
 
 }
 
