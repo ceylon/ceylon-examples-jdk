@@ -32,7 +32,7 @@ shared void egUnionConcatenatedStream() {
         .filter((x)
             => switch (x)
             case (is String) x.longerThan(4)
-            case (is Integer) true)
+            case (is Integer) x>4)
         .limit(10)
         .forEachOrdered(print);
 }
@@ -47,8 +47,7 @@ shared void egParallelStreamToMap() {
                 .parallel()
                 .map(String.trimmed)
                 .filter((str) => str.shorterThan(10))
-                .collect(toMap((String str) => str,
-                               (String str) => str.size));
+                .collect(toMap(String.string, String.size));
 
     map.entrySet()
         .parallelStream()

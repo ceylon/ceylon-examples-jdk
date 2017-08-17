@@ -7,7 +7,7 @@ Just import this project into [Ceylon IDE] for IntelliJ or
 Eclipse, and run the example functions directly within the
 IDE.
 
-This project requires Ceylon 1.3.1.
+This project requires Ceylon 1.3.3.
 
 [Ceylon IDE]: https://ceylon-lang.org/download/ 
 

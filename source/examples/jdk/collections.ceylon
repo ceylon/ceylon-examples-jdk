@@ -40,7 +40,7 @@ shared void egArray() {
         print(length);
     }
 
-    Arrays.sort<String>(words,
+    Arrays.sort<String>(words.array,
         (x, y) => x.size - y.size);
 
     print(Arrays.toString(words));
